@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traducteur Inverse Analytique : Français -> Tumẓabt</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dictionnaire Inverse Tumẓabt (Mzab)</h1>
+            <p class="subtitle">Analyse sémantique structurelle & Pipeline de recherche</p>
+        </header>
+
+        <section class="input-panel">
+            <textarea id="sentenceInput" placeholder="Saisissez une phrase en français à analyser... (Ex: Je veux aider mon père et envoyer une lettre.)"></textarea>
+            <button id="analyzeBtn" onclick="performAnalysis()">Analyser la phrase</button>
+        </section>
+
+        <section class="stats-panel" id="statsPanel" style="display: none;">
+            <div class="stat-card">
+                <span class="stat-val" id="statTotal">0</span>
+                <span class="stat-lbl">Mots Analysés</span>
+            </div>
+            <div class="stat-card match">
+                <span class="stat-val" id="statMatched">0</span>
+                <span class="stat-lbl">Mots Trouvés</span>
+            </div>
+            <div class="stat-card no-match">
+                <span class="stat-val" id="statUnmatched">0</span>
+                <span class="stat-lbl">Non Trouvés</span>
+            </div>
+        </section>
+
+        <section class="results-panel">
+            <table id="resultsTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Mot (Français)</th>
+                        <th>Status</th>
+                        <th>Entrée Tumzabt</th>
+                        <th>Racine (Root)</th>
+                        <th>Grammaire</th>
+                        <th>Sens Principaux</th>
+                        <th>Détails</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
